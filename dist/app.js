@@ -7,9 +7,19 @@ const welcome=document.querySelector('.welcome');
 const skipIntro=document.querySelector('.welcome-skip');
 const pageContent=[...document.body.children].filter(el=>el!==welcome&&el.tagName!=='SCRIPT');
 let introTimer,exitTimer,previousFocus,introActive=false;
+const introStorageKey='bernardo-portfolio-intro-seen';
+function hasSeenIntro(){
+ try{return sessionStorage.getItem(introStorageKey)==='true';}
+ catch{return false;}
+}
+function rememberIntro(){
+ try{sessionStorage.setItem(introStorageKey,'true');}
+ catch{}
+}
 function finishIntro(immediate=false){
  if(!introActive)return;
  introActive=false;clearTimeout(introTimer);clearTimeout(exitTimer);
+ rememberIntro();
  welcome.classList.add('leaving');root.classList.remove('intro-running');
  pageContent.forEach(el=>el.inert=false);
  if(welcome.contains(document.activeElement)) (previousFocus?.isConnected?previousFocus:document.querySelector('.brand')).focus({preventScroll:true});
@@ -29,7 +39,7 @@ skipIntro.addEventListener('click',()=>finishIntro(true));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&introActive)finishIntro(true);});
 document.querySelector('.replay-intro').addEventListener('click',playIntro);
 reduced.addEventListener('change',()=>{if(reduced.matches)finishIntro(true);});
-if(!reduced.matches&&(!location.hash||location.hash==='#inicio'))playIntro();
+if(!reduced.matches&&!hasSeenIntro()&&(!location.hash||location.hash==='#inicio'))playIntro();
 const toggle = document.querySelector('.motion-toggle');
 function syncMotion(){root.classList.toggle('paused',paused);toggle.setAttribute('aria-pressed',String(paused));toggle.querySelector('.motion-label').textContent=paused?'Retomar animações':'Pausar animações';toggle.firstElementChild.textContent=paused?'▷':'Ⅱ';}
 toggle.addEventListener('click',()=>{paused=!paused;syncMotion();});
