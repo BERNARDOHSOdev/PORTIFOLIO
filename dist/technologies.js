@@ -4,7 +4,7 @@ const technologyGroups = [
   ['Backend', 'Serviços e integração entre sistemas.', [['Node.js','nodejs'],['Express','express'],['APIs REST',null]]],
   ['Bancos de dados & BaaS', 'Armazenamento e serviços de dados.', [['MySQL','mysql'],['MongoDB','mongodb'],['PostgreSQL','postgresql'],['Supabase','supabase']]],
   ['Ferramentas', 'Ferramentas para desenvolvimento e controle de versão.', [['Git','git'],['GitHub','github'],['VS Code','vscode']]],
-  ['Atualmente estudando', 'Conhecimentos que estou aprofundando.', [['Spring Boot','spring'],['Row Level Security',null],['LGPD',null]]]
+  ['Atualmente estudando', 'Conhecimentos que estou aprofundando.', [['TypeScript','typescript'],['Spring Boot','spring'],['Row Level Security',null],['LGPD',null]]]
 ];
 const technologyPanel = document.querySelector('#panel-technologies');
 if (technologyPanel) {
