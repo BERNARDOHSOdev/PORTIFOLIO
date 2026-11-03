@@ -23,6 +23,103 @@ if (modelGrid && modelFilter) {
     option.textContent = category;
     modelFilter.append(option);
   });
+  const filterTrigger = document.querySelector('#model-filter-trigger');
+  const filterMenu = document.querySelector('#model-filter-menu');
+  const filterOptions = document.querySelector('#model-filter-options');
+  const filterSearch = document.querySelector('.model-filter-search');
+  const filterValue = document.querySelector('#model-filter-value');
+  let focusedOption = 0;
+  const categories = ['all', ...new Set(landingModels.map(model => model.category))];
+  function closeFilter(returnFocus = false) {
+    filterMenu.hidden = true;
+    filterTrigger.setAttribute('aria-expanded', 'false');
+    if (returnFocus) filterTrigger.focus();
+  }
+  function chooseCategory(value) {
+    modelFilter.value = value;
+    filterValue.textContent = value === 'all' ? 'Todos os segmentos' : value;
+    renderOptions(filterSearch.value);
+    closeFilter(true);
+    modelFilter.dispatchEvent(new Event('change'));
+  }
+  function renderOptions(query = '') {
+    filterOptions.replaceChildren();
+    const normalizedQuery = query.trim().toLocaleLowerCase('pt-BR');
+    const filtered = categories.filter(value => {
+      const label = value === 'all' ? 'Todos os segmentos' : value;
+      return label.toLocaleLowerCase('pt-BR').includes(normalizedQuery);
+    });
+    focusedOption = Math.min(focusedOption, Math.max(0, filtered.length - 1));
+    filtered.forEach((value, index) => {
+      const label = value === 'all' ? 'Todos os segmentos' : value;
+      const option = document.createElement('button');
+      option.type = 'button';
+      option.className = 'model-filter-option';
+      option.id = 'model-filter-option-' + index;
+      option.setAttribute('role', 'option');
+      option.setAttribute('aria-selected', String(modelFilter.value === value));
+      option.tabIndex = -1;
+      option.dataset.value = value;
+      option.textContent = label;
+      const count = value === 'all' ? landingModels.length : landingModels.filter(model => model.category === value).length;
+      const tally = document.createElement('span');
+      tally.className = 'model-filter-count';
+      tally.textContent = String(count).padStart(2, '0');
+      option.append(tally);
+      option.addEventListener('click', () => chooseCategory(value));
+      filterOptions.append(option);
+    });
+    if (!filtered.length) {
+      const empty = document.createElement('p');
+      empty.className = 'model-filter-empty';
+      empty.textContent = 'Nenhum segmento encontrado';
+      filterOptions.append(empty);
+    }
+  }
+  renderOptions();
+  filterTrigger.addEventListener('click', () => {
+    const opening = filterMenu.hidden;
+    filterMenu.hidden = !opening;
+    filterTrigger.setAttribute('aria-expanded', String(opening));
+    if (opening) {
+      filterSearch.value = '';
+      focusedOption = Math.max(0, categories.indexOf(modelFilter.value));
+      renderOptions();
+      filterSearch.focus();
+    }
+  });
+  filterSearch.addEventListener('input', () => { focusedOption = 0; renderOptions(filterSearch.value); });
+  filterSearch.addEventListener('keydown', event => {
+    const options = [...filterOptions.querySelectorAll('[role="option"]')];
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (!options.length) return;
+      focusedOption = (focusedOption + (event.key === 'ArrowDown' ? 1 : options.length - 1)) % options.length;
+      options[focusedOption].focus();
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      closeFilter(true);
+    }
+  });
+  filterOptions.addEventListener('keydown', event => {
+    const options = [...filterOptions.querySelectorAll('[role="option"]')];
+    const current = options.indexOf(document.activeElement);
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      focusedOption = (current + (event.key === 'ArrowDown' ? 1 : options.length - 1)) % options.length;
+      options[focusedOption]?.focus();
+    } else if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
+      focusedOption = event.key === 'Home' ? 0 : options.length - 1;
+      options[focusedOption]?.focus();
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      closeFilter(true);
+    } else if (event.key === 'Tab') closeFilter();
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.model-select-wrap') && !filterMenu.hidden) closeFilter();
+  });
   function renderModels() {
     modelGrid.replaceChildren();
     landingModels.forEach((model, index) => {
