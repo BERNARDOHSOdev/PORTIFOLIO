@@ -22,7 +22,8 @@ Object.assign(translations,{
  'A IA oferece orientação informativa, não diagnóstico. O MedScan não substitui a avaliação de profissionais de saúde.':'AI provides informational guidance, not a diagnosis. MedScan does not replace a healthcare professional.',
  'Relato de sintomas e envio de imagens para orientação inicial por IA.':'Report symptoms and upload images for initial AI guidance.','Prontuário digital com linha do tempo, busca e filtros.':'Digital health record with timeline, search, and filters.','Organização de medicamentos, consultas, alergias e vacinação.':'Organize medication, appointments, allergies, and vaccinations.','Registro manual de medições com histórico e gráficos.':'Record measurements with history and charts.','Perfis de familiares e pessoas acompanhadas.':'Profiles for family members and people in your care.','Resumo para consulta com opção de salvar ou imprimir em PDF.':'Appointment summary with PDF save and print options.','Interface responsiva com temas claro e escuro.':'Responsive interface with light and dark themes.',
  'O DollarTrack reúne taxas de referência diárias, conversão de moedas e ferramentas de análise histórica em uma interface responsiva. Os dados são fornecidos pela Frankfurter API.':'DollarTrack combines daily reference rates, currency conversion, and historical analysis tools in a responsive interface. Data is provided by the Frankfurter API.','As taxas são referências diárias e não necessariamente correspondem a valores negociáveis. O simulador não inclui impostos ou custos.':'Rates are daily references and may not match tradable rates. The simulator excludes taxes and fees.','Panorama de moedas e favoritos salvos no navegador.':'Currency overview and favorites saved in the browser.','Conversor com seleção e inversão de moedas.':'Converter with currency selection and reversal.','Gráficos históricos com comparação de moedas.':'Historical charts with currency comparisons.','Simulação de valorização cambial.':'Exchange rate appreciation simulator.','Exportação de dados em CSV e JSON.':'Export data in CSV and JSON.','Temas claro e escuro e layout responsivo.':'Light and dark themes with responsive layout.',
- 'Barbearia 01':'Barbershop 01','Barbearia 02':'Barbershop 02','Barbearia 03':'Barbershop 03','Ver demonstração':'View demo'
+ 'Barbearia 01':'Barbershop 01','Barbearia 02':'Barbershop 02','Barbearia 03':'Barbershop 03','Ver demonstração':'View demo',
+ 'DISPONÍVEL PARA NOVOS PROJETOS':'AVAILABLE FOR NEW PROJECTS','Vamos dar forma':'Let’s bring','à sua próxima ideia':'your next idea to life','Vamos conversar':'Let’s talk','Sites e landing pages que apresentam negócios com clareza e transformam boas ideias em presença digital.':'Websites and landing pages that present businesses clearly and turn great ideas into a digital presence.','◉ Minas Gerais, Brasil':'◉ Minas Gerais, Brazil','NAVEGAÇÃO':'NAVIGATION','Modelos de landing page':'Landing page templates','CONTATO':'CONTACT','Voltar ao topo':'Back to top','Feito com cuidado.':'Made with care.'
 });
 const originalText = new WeakMap();
 function translatePage(language){
@@ -50,13 +51,39 @@ function translatePage(language){
 }
 let language='pt';
 try{language=sessionStorage.getItem('portfolio-language')==='en'?'en':'pt'}catch{}
-const observer=new MutationObserver(()=>{if(language==='en')translatePage(language)});
-observer.observe(document.body,{childList:true,subtree:true});
+const translationObserver=new MutationObserver(()=>{if(language==='en')translatePage(language)});
+translationObserver.observe(document.body,{childList:true,subtree:true});
 document.querySelectorAll('.language-switch button').forEach(button=>button.addEventListener('click',()=>{
  language=button.dataset.lang;
  try{sessionStorage.setItem('portfolio-language',language)}catch{}
  translatePage(language);
+ restartTyping();
 }));
 translatePage(language);
 const typing=document.querySelector('.typing-role');
-if(typing){typing.addEventListener('animationend',event=>{if(event.animationName==='typing-reveal')typing.classList.add('done')});}
+let typingTimer,typingCycle=0,typingIndex=0,typingDeleting=false;
+const typingPhrases={pt:['Desenvolvimento web & landing pages','Sites que valorizam seu negócio','Experiências digitais com intenção'],en:['Web development & landing pages','Websites that elevate your business','Thoughtful digital experiences']};
+function restartTyping(){
+ if(!typing)return;
+ clearTimeout(typingTimer);
+ typingCycle=0;typingIndex=0;typingDeleting=false;
+ const phrase=typingPhrases[language][0];
+ typing.parentElement.setAttribute('aria-label',phrase);
+ typing.setAttribute('aria-hidden','true');
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('paused')){typing.textContent=phrase;return;}
+ typing.textContent='';
+ typingTimer=setTimeout(typeStep,340);
+}
+function typeStep(){
+ if(document.hidden){typingTimer=setTimeout(typeStep,450);return;}
+ if(document.documentElement.classList.contains('paused')){typing.textContent=typingPhrases[language][typingCycle];return;}
+ const phrase=typingPhrases[language][typingCycle];
+ typingIndex+=typingDeleting?-1:1;
+ typing.textContent=phrase.slice(0,typingIndex);
+ if(typingIndex===phrase.length&&!typingDeleting){typingDeleting=true;typingTimer=setTimeout(typeStep,1900);return;}
+ if(typingIndex===0&&typingDeleting){typingDeleting=false;typingCycle=(typingCycle+1)%typingPhrases[language].length;typing.parentElement.setAttribute('aria-label',typingPhrases[language][typingCycle]);typingTimer=setTimeout(typeStep,320);return;}
+ typingTimer=setTimeout(typeStep,typingDeleting?32:55+(typingIndex%4===0?30:0));
+}
+restartTyping();
+document.querySelector('.motion-toggle')?.addEventListener('click',()=>{if(typing)restartTyping()});
+matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',restartTyping);
