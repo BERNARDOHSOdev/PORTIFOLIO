@@ -45,7 +45,16 @@ let slide=0;
 const frame=document.querySelector('.case-blank');
 const dotsContainer=document.querySelector('.gallery-dots');
 const caption=document.querySelector('.gallery-caption span');
-const count=gallery.length||3;
+if(project.id==='vetflow'){
+  frame.classList.add('development-placeholder');
+  frame.setAttribute('aria-label','Galeria do VetFlow em preparação');
+  const status=document.createElement('div');
+  status.className='development-message';
+  status.innerHTML='<span>PROJETO EM DESENVOLVIMENTO</span><h2>Novas telas<br>em breve.</h2><p>O VetFlow ainda está sendo construído. As imagens completas do projeto serão adicionadas nas próximas atualizações.</p>';
+  frame.prepend(status);
+  caption.textContent='IMAGENS EM PREPARAÇÃO';
+}
+const count=project.id==='vetflow'?1:gallery.length||3;
 let photo;
 if(gallery.length){
   frame.classList.add('has-images');
