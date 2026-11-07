@@ -1,0 +1,112 @@
+html,body{overflow-x:clip}
+body::before,body::after{display:none!important}
+.hero-glow,.starfield{display:none!important}
+.header{background:#fff!important;border-color:#e8e8e8!important;box-shadow:none!important;color:#141414}
+.header .wordmark,.header nav a.active{color:#151515!important}.header .wordmark span,.header nav a{color:#777!important}.header nav a.active:after{background:#111}
+.header .language-switch{filter:invert(1)}
+.hero.section-shell{width:100%;max-width:none;min-height:650px;height:calc(100svh - 100px);max-height:1000px;padding:0 6%;display:block;overflow:hidden;background:#fafafa;color:#151515;isolation:isolate}
+.hero-copy{position:static;max-width:none}
+.hero h1{position:absolute;z-index:2;top:9%;left:6%;right:6%;display:flex;justify-content:space-between;gap:.12em;white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,8.7vw,160px);font-weight:700;letter-spacing:-.065em;line-height:1;margin:0;color:#151515}
+.hero h1>span{color:#151515}.hero h1 .hero-outline{color:transparent;-webkit-text-stroke:1.5px #151515}
+.hero .intro-line{position:absolute;top:3%;left:6%;margin:0;color:#777;font-size:11px}.hero .status-dot{background:#48bd89;box-shadow:none}
+.hero .role,.hero .hero-description,.hero .hero-actions{position:absolute;z-index:4;left:7%;width:24%;color:#181818}.hero .role{bottom:24%;font-size:18px;line-height:1.4}.hero .code-bracket{display:none}.hero .hero-description{bottom:16%;font-size:12px;line-height:1.6;margin:0;color:#666}.hero .hero-actions{bottom:7%;margin:0;display:flex;flex-wrap:wrap;gap:14px}.hero .primary{background:#111;color:white;border:0;border-radius:50px;box-shadow:none;min-height:42px}.hero .github-link{color:#222}.hero .github-link img{filter:invert(1)}
+.hero .portrait-scene{position:absolute;z-index:3;bottom:0;left:50%;width:min(40%,560px);height:58%;margin:0;transform:translateX(-50%);pointer-events:auto}.hero .portrait-frame{position:absolute;inset:0;border:0;border-radius:0;background:none;box-shadow:none;overflow:hidden;mask-image:none;mix-blend-mode:normal}.hero .portrait-frame img{width:100%;height:100%;object-fit:contain;object-position:center bottom;mask-image:none;filter:grayscale(1);transition:filter 250ms ease,transform 250ms cubic-bezier(.23,1,.32,1);transform-origin:center bottom}.hero .portrait-scene:hover img,.hero .portrait-scene:focus-within img{filter:grayscale(0);transform:scale(1.025)}
+.hero .portrait-scene.entrance{animation:none}.hero .portrait-frame{animation:hero-portrait-in 1.2s cubic-bezier(.23,1,.32,1) both}@keyframes hero-portrait-in{from{opacity:0;transform:translateY(14%)}to{opacity:1;transform:translateY(0)}}
+.hero .hero-bottom{left:auto;right:6%;bottom:8%;color:#777}.hero .hero-note{display:none}.hero .scroll-hint{font-size:11px}.hero .mouse{border-color:#999}.hero .mouse i{background:#666}
+@media(max-width:800px){.hero.section-shell{height:720px;min-height:0;padding:0 6%}.hero h1{top:10%;font-size:clamp(39px,9vw,70px)}.hero .portrait-scene{width:min(70%,400px);height:48%;bottom:22%}.hero .role,.hero .hero-description,.hero .hero-actions{width:84%;left:8%}.hero .role{bottom:15%;font-size:15px}.hero .hero-description{display:none}.hero .hero-actions{bottom:5%}.hero .hero-bottom{display:none}}
+@media(max-width:480px){.hero.section-shell{height:650px}.hero h1{font-size:9vw;letter-spacing:-.065em}.hero .portrait-scene{width:90%;height:49%;bottom:23%}.hero .intro-line{font-size:10px}.hero .role{bottom:16%}.hero .hero-actions{bottom:6%}}
+@media(prefers-reduced-motion:reduce){.hero .portrait-frame{animation:none}.hero .portrait-frame img{transition:none}}
+
+/* Barra limpa e retrato mais presente, seguindo a referência. */
+.header{position:relative;top:auto;width:100%;height:74px;margin:0;border:0;border-radius:0;overflow:visible;backdrop-filter:none}
+.header .nav-wrap{width:100%;max-width:none;padding:0 6%;gap:28px}
+.header nav{margin-left:auto;margin-right:0}
+.hero.section-shell{height:calc(100svh - 74px);min-height:600px;max-height:none;background:#fff}
+.hero .intro-line{display:none}
+.hero h1{top:8%;left:5%;right:5%;justify-content:center;gap:.24em;font-size:clamp(48px,8.2vw,150px);letter-spacing:-.065em}
+.hero .portrait-scene{width:min(50%,720px);max-width:none;height:75%;bottom:0}
+.hero .portrait-frame{width:100%;height:100%}
+.hero .portrait-frame img{object-fit:cover;object-position:center top;mix-blend-mode:normal;border-radius:0}
+.hero .typing-role{color:#111}.hero .typing-role::after,.hero .typing-role.done::after{background:#111;box-shadow:none}
+@media(max-width:800px){.header{width:100%;height:64px;margin:0}.header .nav-wrap{padding:0 4%;gap:10px}.header nav{gap:12px}.hero.section-shell{height:calc(100svh - 64px);min-height:620px}.hero h1{font-size:8.8vw;gap:.2em}.hero .portrait-scene{width:80%;height:59%;bottom:20%}}
+@media(max-width:480px){.hero.section-shell{min-height:590px}.hero h1{font-size:8.7vw}.hero .portrait-scene{width:92%;height:57%;bottom:22%}}
+
+/* Nome em caixa alta e retrato à frente, como na composição de referência. */
+.hero h1{top:7%;left:3%;right:3%;justify-content:center;gap:.22em;font-family:Manrope,sans-serif;font-size:clamp(42px,7.4vw,132px);font-weight:800;letter-spacing:-.055em;text-transform:uppercase}
+.hero .portrait-scene{z-index:3;height:88%;width:min(50%,720px)}
+.hero .role,.hero .hero-description,.hero .hero-actions{left:6%;width:25%}
+.hero .role{bottom:25%;font-size:clamp(15px,1.25vw,21px)}
+.hero .hero-description{bottom:17%;font-size:clamp(11px,.8vw,14px);line-height:1.55}
+.hero .hero-actions{bottom:9%}
+.hero .primary{min-height:43px;padding:11px 20px;font-size:12px}
+.hero-social{position:absolute;z-index:4;right:6%;bottom:12%;display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.hero-social a{display:flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid #e5e5e5;border-radius:999px;background:#fff;color:#171717;font-size:12px;transition:background 180ms ease,border-color 180ms ease}
+.hero-social a:hover{background:#f3f3f3;border-color:#bdbdbd}.hero-social a>span:last-child{margin-left:auto;color:#777}.hero-social img{width:16px;height:16px}.linkedin-mark{display:grid;place-items:center;width:16px;height:16px;border-radius:2px;background:#171717;color:#fff;font:bold 11px Arial,sans-serif}
+@media(max-width:800px){.hero h1{top:8%;font-size:7.3vw;gap:.2em}.hero .portrait-scene{height:65%;width:82%;bottom:18%}.hero .role{left:6%;bottom:15%;width:88%}.hero .hero-actions{left:6%;bottom:5%;width:auto}.hero-social{right:6%;bottom:5%;flex-direction:row}.hero-social a{font-size:11px;padding:9px 11px}}
+@media(max-width:480px){.hero h1{font-size:7.2vw}.hero .portrait-scene{height:63%;width:94%;bottom:21%}.hero .role{bottom:16%;font-size:13px}.hero .hero-actions{bottom:6%}.hero .primary{font-size:10px;gap:8px;padding:10px 12px}.hero-social{bottom:6%;gap:5px}.hero-social a{font-size:10px;gap:5px;padding:9px}.hero-social a>span:last-child{display:none}}
+
+/* Textos agrupados para manter espaçamento consistente durante a digitação. */
+.hero-introduction{position:absolute;z-index:4;left:6%;bottom:10%;width:min(29%,430px);display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.hero .hero-introduction .role,.hero .hero-introduction .hero-description,.hero .hero-introduction .hero-actions{position:relative;inset:auto;width:100%;margin:0}
+.hero .hero-introduction .role{font-size:clamp(20px,1.65vw,27px);line-height:1.3;min-height:2.6em;font-weight:700;letter-spacing:-.035em}
+.hero .hero-introduction .typing-role{white-space:normal}
+.hero .hero-introduction .hero-description{display:block;max-width:38ch;color:#555;font-size:clamp(15px,1.05vw,17px);line-height:1.65}
+.hero .hero-introduction .primary{min-height:50px;padding:13px 21px;font-size:13px}
+@media(max-width:800px){.hero.section-shell{min-height:760px}.hero .portrait-scene{height:53%;bottom:31%}.hero-introduction{left:6%;bottom:6%;width:88%;gap:10px}.hero .hero-introduction .role{font-size:20px;min-height:2.6em}.hero .hero-introduction .hero-description{font-size:14px;line-height:1.5;max-width:44ch}.hero-social{bottom:35%;right:5%;flex-direction:column}}
+@media(max-width:480px){.hero.section-shell{min-height:720px}.hero .portrait-scene{height:50%;bottom:34%}.hero-introduction{bottom:5%;gap:9px}.hero .hero-introduction .role{font-size:18px}.hero .hero-introduction .hero-description{font-size:14px}.hero-social{bottom:37%}}
+
+/* Letras contornadas precisam de espaço para os traços não se cruzarem. */
+.hero h1{letter-spacing:0;font-size:clamp(38px,6.5vw,116px);gap:.2em}
+@media(max-width:800px){.hero h1{font-size:6.4vw;letter-spacing:0}}
+
+/* Pinta o preenchimento depois do contorno para ocultar linhas internas dos glifos. */
+.hero h1 .hero-outline{color:#fff;-webkit-text-fill-color:#fff;-webkit-text-stroke:5.5px #151515;paint-order:stroke fill}
+.hero h1{font-size:clamp(44px,7.7vw,142px);gap:.13em}
+@media(max-width:800px){.hero h1{font-size:7.5vw;gap:.1em}.hero h1 .hero-outline{-webkit-text-stroke:3px #151515}}
+.hero .hero-introduction .role{min-height:1.3em}
+.header{height:88px}.hero.section-shell{height:calc(100svh - 88px)}
+.header .brand.wordmark{font-size:18px}.header nav a{font-size:14px}
+.hero .portrait-scene:hover img,.hero .portrait-scene:focus-within img{filter:grayscale(1);transform:none}
+.hero .portrait-scene .portrait-frame img.is-highlighted{filter:grayscale(0);transform:scale(1.025)}
+@media(max-width:800px){.header{height:72px}.hero.section-shell{height:calc(100svh - 72px)}.header .brand.wordmark{font-size:14px}.header nav a{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.hero .portrait-scene .portrait-frame img.is-highlighted{transform:none}}
+
+/* No celular o retrato encosta na apresentação, sem offsets pela altura da tela. */
+@media(max-width:800px){
+  .hero.section-shell{display:flex;flex-direction:column;align-items:stretch;height:auto;min-height:0;max-height:none;padding:32px 6% 40px}
+  .hero .hero-copy{display:contents}
+  .hero h1{order:1;position:relative;inset:auto;width:100%;margin:0;flex-shrink:0;font-size:7.5vw}
+  .hero .portrait-scene{order:2;position:relative;inset:auto;transform:none;width:100%;max-width:470px;height:clamp(320px,95vw,470px);min-height:0;aspect-ratio:auto;margin:-8px auto 0;align-self:center}
+  .hero .portrait-frame{inset:0;width:100%;height:100%}
+  .hero .hero-introduction{order:3;position:relative;inset:auto;width:100%;margin:0;padding:26px 0 0;background:#fff;border-top:1px solid #e8e8e8;gap:14px}
+  .hero .hero-introduction .role{min-height:1.3em;font-size:21px}
+  .hero .hero-introduction .hero-description{font-size:15px;max-width:48ch}
+  .hero .hero-introduction .hero-actions{width:auto}
+  .hero .hero-social{order:4;position:relative;inset:auto;flex-direction:row;align-self:flex-start;margin:20px 0 0;gap:10px}
+  .hero .hero-social a{min-height:40px;font-size:12px;padding:10px 14px}
+}
+
+/* O cursor pertence ao texto digitado e não deve cair em uma segunda linha. */
+.hero .hero-introduction .typing-role{display:inline-flex;align-items:center;white-space:nowrap;max-width:none}
+.hero .hero-introduction .typing-role::after{flex:0 0 2px;vertical-align:initial}
+
+/* Cabeçalho flutuante com a paleta clara do site. */
+.header{position:sticky;top:16px;width:min(1550px,calc(100% - 64px));height:80px;margin:24px auto 0;border:1px solid #dedede;border-radius:999px;background:#fffffff0!important;backdrop-filter:blur(18px);box-shadow:0 8px 28px #0000000a!important}
+.header .nav-wrap{padding:0 34px}
+@media(max-width:800px){.header{top:10px;width:calc(100% - 24px);height:64px;margin:12px auto 0}.header .nav-wrap{padding:0 16px}}
+@media(max-width:390px){.header .nav-wrap{padding:0 10px;gap:8px}}
+
+.header{background:#111111f2!important;border-color:#383838!important;box-shadow:0 12px 35px #0003!important;color:#f5f5f5}
+.header .wordmark,.header nav a.active{color:#f5f5f5!important}.header .wordmark span,.header nav a{color:#aaa!important}.header nav a.active:after{background:#f5f5f5}.header .language-switch{filter:none}
+body{background:#fff}
+.header{position:relative;top:auto;width:100%;height:88px;margin:0;border:0;border-radius:0;background:#fff!important;backdrop-filter:none;box-shadow:none!important;color:#151515}.header .nav-wrap{padding:0 6%}.header .wordmark,.header nav a.active{color:#151515!important}.header .wordmark span,.header nav a{color:#777!important}.header nav a.active:after{background:#111}.header .language-switch{filter:invert(1)}
+@media(max-width:800px){.header{height:72px;margin:0;width:100%}.header .nav-wrap{padding:0 4%}}
+@media(max-width:390px){.header .nav-wrap{padding:0 10px}}
+
+/* Blocos escuros temporários para modelos e contato. */
+.landing-showcase,.contact-section{position:relative;isolation:isolate;color:#f3f3f3}
+.landing-showcase::before,.contact-section::before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:#0a0a0a}
+.landing-showcase .section-kicker,.landing-intro>p,.model-toolbar>p,.contact-heading>p,.contact-methods legend{color:#a0a0a0}
+.landing-showcase{border-top-color:#ffffff16}.contact-section{border-top-color:#ffffff16}
+
+.connect{position:relative;isolation:isolate;color:#f3f3f3;border-top-color:#ffffff16}.connect::before{content:'';position:absolute;z-index:-2;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:#0a0a0a}.connect .section-kicker,.connect>p{color:#a0a0a0}.connect h2>span:first-child{color:#f3f3f3}.connect .connect-glow{z-index:-1}

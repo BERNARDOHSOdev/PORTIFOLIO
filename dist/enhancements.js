@@ -1,4 +1,12 @@
 const translations = {
+ 'Explore os projetos':'Explore the projects','Projeto anterior':'Previous project','Próximo projeto':'Next project','Landing pages selecionadas':'Selected landing pages','Layout responsivo':'Responsive layout',
+ 'Fitness & bem-estar':'Fitness & wellness','Energia & sustentabilidade':'Energy & sustainability','Gastronomia':'Gastronomy','Design & interiores':'Design & interiors',
+ 'Uma apresentação de impacto para mostrar a estrutura da academia, valorizar os treinos e incentivar o próximo passo.':'A bold presentation of the gym and its training experience, inviting visitors to take the next step.',
+ 'Uma página para apresentar soluções de energia solar com clareza e aproximar o visitante de um novo orçamento.':'A clear presentation of solar energy solutions that helps visitors take the next step toward a quote.',
+ 'Uma experiência visual que apresenta o restaurante, valoriza sua identidade e convida a conhecer a casa.':'A visual experience that presents the restaurant, highlights its identity, and invites visitors inside.',
+ 'Uma vitrine para apresentar móveis e ambientes, destacar os detalhes e inspirar novas possibilidades para a casa.':'A showcase of furniture and interiors that highlights the details and inspires new possibilities for the home.',
+ 'Áreas de':'Areas of','conhecimento.':'expertise.','Trabalhos':'Selected','selecionados.':'work.',
+ 'Trabalhos selecionados':'Selected work',
  'Bem-vindo ao meu':'Welcome to my','universo digital.':'digital universe.','Pular introdução':'Skip intro','Sites pensados para pessoas e negócios.':'Websites made for people and businesses.','Início':'Home','Sobre':'About','Portfólio':'Portfolio','Contato':'Contact',
  'Desenvolvimento web & landing pages':'Web development & landing pages','Crio sites e landing pages para apresentar negócios com clareza, valorizar serviços e facilitar o contato com novos clientes. Design, código e atenção à experiência de quem visita.':'I create websites and landing pages that present businesses clearly, highlight their services, and help turn visitors into new clients. Design, code, and attention to the visitor experience.',
  'Conheça meu trabalho':'Explore my work','Meu GitHub':'My GitHub','Explore um pouco mais':'Scroll to explore','Pensado nos detalhes. Feito com intenção.':'Thought through in every detail. Made with purpose.','Sobre mim':'About me','Seu negócio.':'Your business.','Uma presença':'A digital presence','bem construída.':'built with care.','Desenvolvimento de sites':'Website development',

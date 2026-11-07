@@ -6,46 +6,65 @@ const technologyGroups = [
   ['Ferramentas', 'Ferramentas para desenvolvimento e controle de versão.', [['Git','git'],['GitHub','github'],['VS Code','vscode']]],
   ['Atualmente estudando', 'Conhecimentos que estou aprofundando.', [['TypeScript','typescript'],['Spring Boot','spring'],['Row Level Security',null],['LGPD',null]]]
 ];
-const technologyPanel = document.querySelector('#panel-technologies');
+const technologyPanel = document.querySelector('#expertise-list');
 if (technologyPanel) {
   technologyPanel.replaceChildren();
-  technologyGroups.forEach(([name, description, items]) => {
-    const group = document.createElement('div');
-    group.className = 'technology-group';
+  technologyGroups.forEach(([name, description, items], index) => {
+    const group = document.createElement('article');
+    group.className = 'expertise-row';
     const info = document.createElement('div');
     const title = document.createElement('h3');
-    title.textContent = name;
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.textContent = name;
+    trigger.setAttribute('aria-pressed', 'false');
+    title.append(trigger);
+    info.className = 'expertise-description';
     const text = document.createElement('p');
     text.textContent = description;
-    info.append(title, text);
+    info.append(text);
     const grid = document.createElement('div');
-    grid.className = 'technology-grid';
-    items.forEach(([label, icon]) => {
-      const tile = document.createElement('div');
-      tile.className = 'technology-tile';
-      if (icon) {
-        const img = document.createElement('img');
-        img.className = 'technology-icon' + (icon === 'github' || icon === 'express' ? ' technology-icon-light' : '');
-        const local = ['java','javascript','python','php','html5','css3','react','nodejs','mysql','mongodb','git','github'].includes(icon);
-        img.src = local ? 'assets/technologies/' + icon + '.svg' : 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/' + icon + '/' + icon + '-original.svg';
-        img.alt = '';
-        img.width = 48;
-        img.height = 48;
-        img.loading = 'lazy';
-        tile.append(img);
-      } else {
-        const mark = document.createElement('span');
-        mark.className = 'technology-mark';
-        mark.setAttribute('aria-hidden','true');
-        mark.textContent = label === 'APIs REST' ? '{ }' : label === 'LGPD' ? '§' : '◈';
-        tile.append(mark);
-      }
+    grid.className = 'expertise-tools';
+    items.forEach(([label]) => {
       const caption = document.createElement('span');
       caption.textContent = label;
-      tile.append(caption);
-      grid.append(tile);
+      grid.append(caption);
     });
-    group.append(info, grid);
+    info.append(grid);
+    const preview = document.createElement('div');
+    preview.className = 'expertise-preview';
+    preview.setAttribute('aria-hidden', 'true');
+    items.forEach(([label, icon], itemIndex) => {
+      const tile = document.createElement('div');
+      tile.className = 'expertise-icon-tile';
+      tile.style.setProperty('--tile-index', itemIndex);
+      if(icon){
+        const img = document.createElement('img');
+        const local = ['java','javascript','python','php','html5','css3','react','nodejs','mysql','mongodb','git','github'].includes(icon);
+        img.src = local ? 'assets/technologies/'+icon+'.svg' : 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/'+icon+'/'+icon+'-original.svg';
+        img.alt = ''; img.width = 42; img.height = 42;
+        if(icon === 'github' || icon === 'express') img.className = 'expertise-icon-white';
+        tile.append(img);
+      }else{
+        const symbol = document.createElement('span');symbol.className='expertise-symbol';
+        symbol.textContent = label === 'APIs REST' ? '{ }' : label === 'LGPD' ? '§' : '◇';
+        tile.append(symbol);
+      }
+      const caption = document.createElement('span');caption.textContent=label;tile.append(caption);preview.append(tile);
+    });
+    const content = document.createElement('div');content.className='expertise-content';content.append(info,preview);
+    let pinned = false, hovered = false, hoverTimer;
+    const sync = () => {const active=pinned||hovered;group.classList.toggle('is-active',active);trigger.setAttribute('aria-pressed',String(active));};
+    group.addEventListener('pointerenter',e=>{
+      if(e.pointerType==='mouse'){
+        clearTimeout(hoverTimer);
+        hoverTimer=setTimeout(()=>{hovered=true;sync();},120);
+      }
+    });
+    group.addEventListener('pointerleave',()=>{clearTimeout(hoverTimer);hovered=false;sync();});
+    trigger.addEventListener('click',()=>{clearTimeout(hoverTimer);pinned=!pinned;sync();});
+    trigger.addEventListener('keydown',e=>{if(e.key==='Escape'){clearTimeout(hoverTimer);pinned=false;hovered=false;sync();}});
+    group.append(title, content);
     technologyPanel.append(group);
   });
 }

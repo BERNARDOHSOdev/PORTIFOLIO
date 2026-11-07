@@ -37,7 +37,7 @@ function playIntro(){
 }
 skipIntro.addEventListener('click',()=>finishIntro(true));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&introActive)finishIntro(true);});
-document.querySelector('.replay-intro').addEventListener('click',playIntro);
+document.querySelector('.replay-intro')?.addEventListener('click',playIntro);
 reduced.addEventListener('change',()=>{if(reduced.matches)finishIntro(true);});
 if(!reduced.matches&&!hasSeenIntro()&&(!location.hash||location.hash==='#inicio'))playIntro();
 const toggle = document.querySelector('.motion-toggle');
@@ -45,17 +45,28 @@ function syncMotion(){root.classList.toggle('paused',paused);toggle.setAttribute
 toggle.addEventListener('click',()=>{paused=!paused;syncMotion();});
 reduced.addEventListener('change',()=>{paused=reduced.matches;syncMotion();});syncMotion();
 document.querySelector('#year').textContent=new Date().getFullYear();
+// Certificates and technologies are being moved to dedicated sections later.
+document.querySelectorAll('#tab-certificates,#tab-technologies,#panel-certificates,#panel-technologies').forEach(element=>element.remove());
 const tabs=[...document.querySelectorAll('[role="tab"]')];
 const projects=window.portfolioData?.projects||[];
 if(projects.length){
  const panel=document.querySelector('#panel-projects');panel.replaceChildren();
  const grid=document.createElement('div');grid.className='project-grid';panel.append(grid);
- projects.forEach(project=>{
+ projects.slice(0,3).forEach(project=>{
  const card=document.createElement('article');card.className='project-card';
  const link=document.createElement('a');link.href='project.html?id='+encodeURIComponent(project.id)+'&v=20261102-2';link.className='project-card-link';
  const visual=document.createElement('div');visual.className='project-card-visual';
- if(project.id==='dollartrack')visual.classList.add('project-card-visual-wide');
- if(project.cardImage||project.image){const img=document.createElement('img');img.src=project.cardImage||project.image;img.alt=project.cardImageAlt||project.imageAlt||'Prévia de '+project.title;img.width=390;img.height=844;img.loading='lazy';visual.append(img);}
+ visual.classList.add('project-phone-stage');visual.dataset.project=project.id;
+ if(project.cardImage||project.image){
+ const phone=document.createElement('div');phone.className='project-phone';
+ const screen=document.createElement('div');screen.className='project-phone-screen';
+ const img=document.createElement('img');img.src=project.id==='dollartrack'?'assets/dollartrack-mobile.png':project.cardImage||project.image;img.alt='Tela do '+project.title+' no celular';img.width=390;img.height=844;img.loading='lazy';
+ screen.append(img);phone.append(screen);visual.append(phone);
+ }
+ if(project.id==='vetflow'){
+  const emblem=document.createElement('div');emblem.className='vetflow-emblem';emblem.setAttribute('aria-hidden','true');emblem.innerHTML='<span class="vetflow-cross">+</span><strong>VetFlow</strong><small>GESTÃO VETERINÁRIA</small>';
+  visual.append(emblem);
+ }
  const label=document.createElement('span');label.className='project-cover-label';label.textContent=project.title;visual.append(label);link.append(visual);
  const content=document.createElement('div');content.className='project-card-content';
  const category=document.createElement('p');category.className='project-category';category.textContent=project.category;content.append(category);
@@ -63,6 +74,13 @@ if(projects.length){
  const summary=document.createElement('p');summary.textContent=project.summary;content.append(summary);
  const foot=document.createElement('div');foot.className='project-card-footer';const tags=document.createElement('span');tags.textContent=project.id==='medscan'?'React Native · Node.js · MongoDB':project.technologies.slice(0,3).join(' · ');foot.append(tags);const detail=document.createElement('span');detail.textContent='Ver projeto ↗';foot.append(detail);content.append(foot);link.append(content);card.append(link);grid.append(card);
  });
+ // Keep any remaining positions available for future projects.
+ for(let slot=grid.children.length;slot<3;slot++){
+ const card=document.createElement('div');card.className='project-card project-card-reserved';card.setAttribute('aria-hidden','true');
+ const visual=document.createElement('div');visual.className='project-card-visual';
+ const content=document.createElement('div');content.className='project-card-content';
+ card.append(visual,content);grid.append(card);
+ }
 }
 function selectTab(tab){
 tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!active;});

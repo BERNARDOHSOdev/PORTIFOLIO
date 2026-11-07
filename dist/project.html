@@ -1,57 +1,44 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta name="robots" content="noindex">
-  <title>Projeto — Bernardo Henrique</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="refinement.css">
-  <link rel="stylesheet" href="monochrome.css">
-  <link rel="stylesheet" href="enhancements.css?v=1">
-  <link rel="icon" href="favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="site-data.js?v=20261102-2" defer></script>
-  <script src="project.js?v=20261102-2" defer></script>
-  <script src="enhancements.js?v=1" defer></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eaeae5">
+<title>Projeto — Bernardo Henrique</title>
+<link rel="icon" href="favicon.svg"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project-case.css?v=10">
+<script src="site-data.js?v=20261106-vetflow" defer></script><script src="project-case.js?v=5" defer></script>
 </head>
 <body>
-  <header class="header">
-    <div class="nav-wrap">
-      <a class="wordmark brand" href="index.html#inicio">bernardo<span>.dev</span></a>
-      <nav aria-label="Navegação principal">
-        <a href="index.html#portfolio">Portfólio</a>
-        <a href="index.html#contato">Contato</a>
-      </nav>
-      <div class="language-switch" role="group" aria-label="Idioma"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+<header class="header">
+  <div class="nav-wrap">
+    <a class="wordmark brand" href="index.html#inicio" aria-label="Bernardo Henrique, início">bernardo<span>.dev</span></a>
+    <nav aria-label="Navegação principal">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#portfolio" class="active" aria-current="page">Portfólio</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Idioma">
+      <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-  </header>
-  <main class="project-page section-shell">
-    <a class="project-back" href="index.html#portfolio">← Voltar ao portfólio</a>
-    <p class="project-notice" hidden>Prévia do layout. Este modelo ainda não representa um projeto real.</p>
-    <div id="project-content" class="project-layout" hidden>
-      <div>
-        <h1 id="project-title"></h1>
-        <p class="project-description"></p>
-        <div class="project-stats"></div>
-        <div class="project-links"></div>
-        <h2 class="project-tech-title">Tecnologias utilizadas</h2>
-        <div class="project-tags"></div>
-      </div>
-      <div>
-        <div class="project-visual"></div>
-        <section class="project-features">
-          <h2>Principais funcionalidades</h2>
-          <ul></ul>
-        </section>
-      </div>
-    </div>
-    <div class="project-empty" hidden>
-      <h1>Projeto ainda não disponível.</h1>
-      <p>Os projetos estão sendo selecionados para o portfólio.</p>
-      <a class="button primary" href="index.html#portfolio">Voltar ao portfólio</a>
-    </div>
-  </main>
-</body>
-</html>
+  </div>
+</header>
+<main class="case-main">
+<a class="case-back" href="index.html#portfolio">← TODOS OS PROJETOS</a>
+<section class="case-intro">
+<div><p class="eyebrow" id="case-category"></p><h1 id="case-title"></h1><p class="case-summary" id="case-summary"></p><div class="case-actions"><a class="case-action case-action-primary" id="case-live" hidden target="_blank" rel="noopener noreferrer">Abrir demonstração <span aria-hidden="true">↗</span></a><a class="case-action case-action-secondary" id="case-repo" hidden target="_blank" rel="noopener noreferrer">Ver no GitHub <span aria-hidden="true">↗</span></a></div></div>
+<dl class="case-meta"><div><dt>ATUAÇÃO</dt><dd>Desenvolvimento web</dd></div><div><dt>PLATAFORMA</dt><dd>Aplicação web responsiva</dd></div><div><dt>PROJETO</dt><dd id="case-team"></dd></div></dl>
+</section>
+<section class="case-gallery" aria-label="Galeria do projeto">
+<div class="case-blank" aria-label="Espaço reservado para imagens do projeto"><button class="gallery-prev" aria-label="Imagem anterior">←</button><button class="gallery-next" aria-label="Próxima imagem">→</button></div>
+<div class="gallery-caption"><div><p class="eyebrow" id="gallery-counter">01 / 03</p><span>VISÃO DO PROJETO</span></div><div class="gallery-dots" aria-label="Selecionar imagem"><button aria-label="Imagem 1" aria-pressed="true"></button><button aria-label="Imagem 2" aria-pressed="false"></button><button aria-label="Imagem 3" aria-pressed="false"></button></div></div>
+</section>
+<section class="case-story">
+<p class="eyebrow">SOBRE O PROJETO</p>
+<div class="story-heading"><h2>Contribuição & impacto</h2><p id="case-context"></p></div>
+<div class="story-columns"><div class="contribution"><h3>Minha contribuição</h3><p id="case-role"></p><ul id="case-features"></ul></div><aside class="impact"><p class="eyebrow">RESULTADO</p><h3 id="case-impact"></h3><div class="impact-counts"><div><strong id="tech-count"></strong><span>TECNOLOGIAS</span></div><div><strong id="feature-count"></strong><span>FUNCIONALIDADES</span></div></div><p id="case-note"></p></aside></div>
+</section>
+<section class="case-stack"><div><p class="eyebrow">TECNOLOGIAS</p><p>Ferramentas utilizadas no projeto.</p></div><ul id="case-stack"></ul></section>
+<section class="case-next"><p class="eyebrow">CONTINUE EXPLORANDO</p><a id="case-next" href="index.html#portfolio"><span>Voltar ao portfólio</span><span>↗</span></a></section>
+</main>
+</body></html>
