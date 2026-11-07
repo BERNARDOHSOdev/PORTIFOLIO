@@ -73,16 +73,16 @@ body::before,body::after{display:none!important}
 
 /* No celular o retrato encosta na apresentação, sem offsets pela altura da tela. */
 @media(max-width:800px){
-  .hero.section-shell{display:flex;flex-direction:column;align-items:stretch;height:auto;min-height:0;max-height:none;padding:32px 6% 40px}
+  .hero.section-shell{display:flex;flex-direction:column;align-items:stretch;gap:0;height:auto;min-height:0;max-height:none;padding:32px 6% 0}
   .hero .hero-copy{display:contents}
   .hero h1{order:1;position:relative;inset:auto;width:100%;margin:0;flex-shrink:0;font-size:7.5vw}
-  .hero .portrait-scene{order:2;position:relative;inset:auto;transform:none;width:100%;max-width:470px;height:clamp(320px,95vw,470px);min-height:0;aspect-ratio:auto;margin:-8px auto 0;align-self:center}
+  .hero .portrait-scene{order:4;position:relative;inset:auto;transform:none;width:100%;max-width:470px;height:clamp(320px,95vw,470px);min-height:0;aspect-ratio:auto;margin:28px auto 0;align-self:center;flex-shrink:0}
   .hero .portrait-frame{inset:0;width:100%;height:100%}
-  .hero .hero-introduction{order:3;position:relative;inset:auto;width:100%;margin:0;padding:26px 0 0;background:#fff;border-top:1px solid #e8e8e8;gap:14px}
+  .hero .hero-introduction{order:2;position:relative;inset:auto;width:100%;margin:0;padding:28px 0 0;background:#fff;border-top:0;gap:14px}
   .hero .hero-introduction .role{min-height:1.3em;font-size:21px}
   .hero .hero-introduction .hero-description{font-size:15px;max-width:48ch}
   .hero .hero-introduction .hero-actions{width:auto}
-  .hero .hero-social{order:4;position:relative;inset:auto;flex-direction:row;align-self:flex-start;margin:20px 0 0;gap:10px}
+  .hero .hero-social{order:3;position:relative;inset:auto;flex-direction:row;align-self:flex-start;margin:20px 0 0;gap:10px}
   .hero .hero-social a{min-height:40px;font-size:12px;padding:10px 14px}
 }
 
