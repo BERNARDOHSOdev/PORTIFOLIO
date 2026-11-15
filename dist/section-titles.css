@@ -1,8 +1,8 @@
 :root{--section-title-size:clamp(58px,7vw,108px);--section-title-leading:.88;--section-title-tracking:-.075em}
 .section-standard-heading{--heading-ink:#111;--heading-muted:#686868;--heading-line:#111;--heading-bg:#fff;color:var(--heading-ink)}
-.section-standard-kicker{display:flex;align-items:center;gap:16px;margin-bottom:54px;font:500 15px/1.2 Manrope,sans-serif;color:var(--heading-muted);text-transform:none;letter-spacing:0}
+.section-standard-kicker{display:flex;align-items:center;gap:16px;margin-bottom:54px;font:500 15px/1.2 Sora,sans-serif;color:var(--heading-muted);text-transform:none;letter-spacing:0}
 .section-standard-kicker i{display:block;width:32px;height:2px;background:var(--heading-line);flex:none}
-.section-standard-heading h2{margin:0;font:800 var(--section-title-size)/var(--section-title-leading) Manrope,sans-serif;letter-spacing:var(--section-title-tracking);text-transform:none;color:var(--heading-ink)}
+.section-standard-heading h2{margin:0;font:800 var(--section-title-size)/var(--section-title-leading) Sora,sans-serif;letter-spacing:var(--section-title-tracking);text-transform:none;color:var(--heading-ink)}
 .section-standard-heading h2>span{display:block;text-transform:none}
 .section-standard-heading .title-outline{color:var(--heading-bg);-webkit-text-fill-color:var(--heading-bg);-webkit-text-stroke:4px var(--heading-ink);paint-order:stroke fill}
 #portfolio{background:#000}
@@ -12,7 +12,7 @@
 #portfolio .portfolio-heading:before{content:none}
 #portfolio .portfolio-heading>.section-kicker{display:none}
 #portfolio .portfolio-heading .section-standard-kicker{display:flex;grid-column:1/-1;margin-bottom:34px}
-#portfolio .portfolio-heading h2{font:800 clamp(58px,6vw,94px)/.88 Manrope,sans-serif;letter-spacing:-.075em}
+#portfolio .portfolio-heading h2{font:800 clamp(58px,6vw,94px)/.88 Sora,sans-serif;letter-spacing:-.075em}
 #portfolio .portfolio-heading h2>span{color:var(--heading-ink);text-transform:none}
 #portfolio .portfolio-heading h2>.title-outline{color:var(--heading-bg);-webkit-text-fill-color:var(--heading-bg)}
 #portfolio .portfolio-heading h2 em{font:inherit;color:inherit}
@@ -20,7 +20,7 @@
 #tecnologias .expertise-heading{padding-bottom:54px}
 #tecnologias .section-standard-heading{--heading-bg:#f8f8f7}
 #tecnologias .expertise-heading .section-standard-kicker{margin-bottom:44px}
-#tecnologias .expertise-heading h2{font:800 var(--section-title-size)/var(--section-title-leading) Manrope,sans-serif;letter-spacing:var(--section-title-tracking)}
+#tecnologias .expertise-heading h2{font:800 var(--section-title-size)/var(--section-title-leading) Sora,sans-serif;letter-spacing:var(--section-title-tracking)}
 #tecnologias .expertise-heading h2>span{color:var(--heading-ink);text-transform:none}
 #tecnologias .expertise-heading h2>.title-outline{color:var(--heading-bg);-webkit-text-fill-color:var(--heading-bg)}
 #tecnologias .expertise-heading h2:before{content:none}
@@ -29,13 +29,13 @@
 #modelos .section-standard-heading{--heading-bg:#f5f5f2}
 #modelos .landing-intro>div>.section-kicker{display:none}
 #modelos .landing-intro>.section-standard-kicker{display:flex;grid-column:1/-1;margin-bottom:-6px}
-#modelos .landing-intro h2{font:800 clamp(58px,6vw,94px)/.88 Manrope,sans-serif;letter-spacing:-.075em;color:var(--heading-ink)}
+#modelos .landing-intro h2{font:800 clamp(58px,6vw,94px)/.88 Sora,sans-serif;letter-spacing:-.075em;color:var(--heading-ink)}
 #modelos .landing-intro h2>span{color:var(--heading-ink);text-transform:none}
 #modelos .landing-intro h2>.title-outline{color:var(--heading-bg);-webkit-text-fill-color:var(--heading-bg)}
 #modelos .landing-intro>p{align-self:end;margin:0 0 5px;color:#70706a;font-size:14px;line-height:1.75}
 #contato .contact-heading>.section-kicker{display:none}
 #contato .contact-heading .section-standard-kicker{margin-bottom:44px}
-#contato .contact-heading h2{font:800 clamp(54px,5.8vw,88px)/.9 Manrope,sans-serif;letter-spacing:-.07em;color:var(--heading-ink)}
+#contato .contact-heading h2{font:800 clamp(54px,5.8vw,88px)/.9 Sora,sans-serif;letter-spacing:-.07em;color:var(--heading-ink)}
 #contato .contact-heading h2>.title-outline{color:var(--heading-bg);-webkit-text-fill-color:var(--heading-bg)}
 #contato .contact-heading>p{margin-top:34px}
 @media(max-width:800px){

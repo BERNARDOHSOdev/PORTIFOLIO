@@ -32,7 +32,7 @@ body::before,body::after{display:none!important}
 @media(max-width:480px){.hero.section-shell{min-height:590px}.hero h1{font-size:8.7vw}.hero .portrait-scene{width:92%;height:57%;bottom:22%}}
 
 /* Nome em caixa alta e retrato à frente, como na composição de referência. */
-.hero h1{top:7%;left:3%;right:3%;justify-content:center;gap:.22em;font-family:Manrope,sans-serif;font-size:clamp(42px,7.4vw,132px);font-weight:800;letter-spacing:-.055em;text-transform:uppercase}
+.hero h1{top:7%;left:3%;right:3%;justify-content:center;gap:.22em;font-family:Sora,sans-serif;font-size:clamp(42px,7.4vw,132px);font-weight:800;letter-spacing:-.055em;text-transform:uppercase}
 .hero .portrait-scene{z-index:3;height:88%;width:min(50%,720px)}
 .hero .role,.hero .hero-description,.hero .hero-actions{left:6%;width:25%}
 .hero .role{bottom:25%;font-size:clamp(15px,1.25vw,21px)}
