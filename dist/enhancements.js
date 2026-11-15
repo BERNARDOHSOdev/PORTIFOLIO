@@ -7,7 +7,7 @@ const translations = {
  'Uma vitrine para apresentar móveis e ambientes, destacar os detalhes e inspirar novas possibilidades para a casa.':'A showcase of furniture and interiors that highlights the details and inspires new possibilities for the home.',
  'Áreas de':'Areas of','conhecimento.':'expertise.','Trabalhos':'Selected','selecionados.':'work.',
  'Trabalhos selecionados':'Selected work',
- 'Bem-vindo ao meu':'Welcome to my','universo digital.':'digital universe.','Pular introdução':'Skip intro','Sites pensados para pessoas e negócios.':'Websites made for people and businesses.','Início':'Home','Sobre':'About','Portfólio':'Portfolio','Contato':'Contact',
+ 'Bem-vindo ao meu':'Welcome to my','universo digital.':'digital universe.','Pular introdução':'Skip intro','Sites pensados para pessoas e negócios.':'Websites made for people and businesses.','Início':'Home','Sobre':'About','Portfólio':'Portfolio','Contato':'Contact','selecionadas.':'selected.','Gestão veterinária · Em desenvolvimento':'Veterinary management · In development',
  'Desenvolvimento web & landing pages':'Web development & landing pages','Crio sites e landing pages para apresentar negócios com clareza, valorizar serviços e facilitar o contato com novos clientes. Design, código e atenção à experiência de quem visita.':'I create websites and landing pages that present businesses clearly, highlight their services, and help turn visitors into new clients. Design, code, and attention to the visitor experience.',
  'Conheça meu trabalho':'Explore my work','Meu GitHub':'My GitHub','Explore um pouco mais':'Scroll to explore','Pensado nos detalhes. Feito com intenção.':'Thought through in every detail. Made with purpose.','Sobre mim':'About me','Seu negócio.':'Your business.','Uma presença':'A digital presence','bem construída.':'built with care.','Desenvolvimento de sites':'Website development',
  'Meu foco é transformar o que um negócio faz em um site que as pessoas entendam, gostem de navegar e saibam como usar.':'I turn what a business does into a website people understand, enjoy browsing, and know how to use.',
@@ -69,6 +69,8 @@ document.querySelectorAll('.language-switch button').forEach(button=>button.addE
 }));
 translatePage(language);
 const typing=document.querySelector('.typing-role');
+const announceTarget=document.querySelector('[data-announce]');
+function announcePhrase(text){if(announceTarget)announceTarget.textContent=text;}
 let typingTimer,typingCycle=0,typingIndex=0,typingDeleting=false;
 const typingPhrases={pt:['Desenvolvimento web & landing pages','Sites que valorizam seu negócio','Experiências digitais com intenção'],en:['Web development & landing pages','Websites that elevate your business','Thoughtful digital experiences']};
 function restartTyping(){
@@ -76,7 +78,7 @@ function restartTyping(){
  clearTimeout(typingTimer);
  typingCycle=0;typingIndex=0;typingDeleting=false;
  const phrase=typingPhrases[language][0];
- typing.parentElement.setAttribute('aria-label',phrase);
+ announcePhrase(phrase);
  typing.setAttribute('aria-hidden','true');
  if(matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('paused')){typing.textContent=phrase;return;}
  typing.textContent='';
@@ -89,7 +91,7 @@ function typeStep(){
  typingIndex+=typingDeleting?-1:1;
  typing.textContent=phrase.slice(0,typingIndex);
  if(typingIndex===phrase.length&&!typingDeleting){typingDeleting=true;typingTimer=setTimeout(typeStep,1900);return;}
- if(typingIndex===0&&typingDeleting){typingDeleting=false;typingCycle=(typingCycle+1)%typingPhrases[language].length;typing.parentElement.setAttribute('aria-label',typingPhrases[language][typingCycle]);typingTimer=setTimeout(typeStep,320);return;}
+ if(typingIndex===0&&typingDeleting){typingDeleting=false;typingCycle=(typingCycle+1)%typingPhrases[language].length;announcePhrase(typingPhrases[language][typingCycle]);typingTimer=setTimeout(typeStep,320);return;}
  typingTimer=setTimeout(typeStep,typingDeleting?32:55+(typingIndex%4===0?30:0));
 }
 restartTyping();

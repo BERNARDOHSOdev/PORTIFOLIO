@@ -31,15 +31,15 @@ if(project.liveUrl){const live=document.getElementById('case-live');live.href=pr
 if(project.repoUrl){const repo=document.getElementById('case-repo');repo.href=project.repoUrl;repo.hidden=false;}
 const next=projects[(projects.indexOf(project)+1)%projects.length];const nextLink=document.getElementById('case-next');nextLink.href='project.html?id='+encodeURIComponent(next.id);nextLink.firstElementChild.textContent=next.title;
 const gallery=project.id==='medscan'?[
-  ['assets/medscan-gallery-cover.png','Boas-vindas ao MedScan'],
-  ['assets/medscan-gallery-1.png','Início — rotina e cuidados'],
-  ['assets/medscan-gallery-2.png','Visão geral e sinais vitais'],
-  ['assets/medscan-gallery-3.png','Conversa com IA'],
-  ['assets/medscan-gallery-4.png','Formulário de orientação'],
-  ['assets/medscan-gallery-5.png','Prontuário digital'],
-  ['assets/medscan-gallery-6.png','Monitoramento de saúde'],
-  ['assets/medscan-gallery-7.png','Dispositivos conectados'],
-  ['assets/medscan-gallery-8.png','Preferências']
+  ['assets/medscan-gallery-cover.webp','Boas-vindas ao MedScan'],
+  ['assets/medscan-gallery-1.webp','Início — rotina e cuidados'],
+  ['assets/medscan-gallery-2.webp','Visão geral e sinais vitais'],
+  ['assets/medscan-gallery-3.webp','Conversa com IA'],
+  ['assets/medscan-gallery-4.webp','Formulário de orientação'],
+  ['assets/medscan-gallery-5.webp','Prontuário digital'],
+  ['assets/medscan-gallery-6.webp','Monitoramento de saúde'],
+  ['assets/medscan-gallery-7.webp','Dispositivos conectados'],
+  ['assets/medscan-gallery-8.webp','Preferências']
 ]:[];
 let slide=0;
 const frame=document.querySelector('.case-blank');

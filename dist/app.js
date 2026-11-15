@@ -46,7 +46,6 @@ toggle.addEventListener('click',()=>{paused=!paused;syncMotion();});
 reduced.addEventListener('change',()=>{paused=reduced.matches;syncMotion();});syncMotion();
 document.querySelector('#year').textContent=new Date().getFullYear();
 // Certificates and technologies are being moved to dedicated sections later.
-document.querySelectorAll('#tab-certificates,#tab-technologies,#panel-certificates,#panel-technologies').forEach(element=>element.remove());
 const tabs=[...document.querySelectorAll('[role="tab"]')];
 const projects=window.portfolioData?.projects||[];
 if(projects.length){
@@ -60,7 +59,7 @@ if(projects.length){
  if(project.cardImage||project.image){
  const phone=document.createElement('div');phone.className='project-phone';
  const screen=document.createElement('div');screen.className='project-phone-screen';
- const img=document.createElement('img');img.src=project.id==='dollartrack'?'assets/dollartrack-mobile.png':project.cardImage||project.image;img.alt='Tela do '+project.title+' no celular';img.width=390;img.height=844;img.loading='lazy';
+ const img=document.createElement('img');img.src=project.cardImage||project.image;img.alt='Tela do '+project.title+' no celular';img.width=390;img.height=844;img.loading='lazy';
  screen.append(img);phone.append(screen);visual.append(phone);
  }
  if(project.id==='vetflow'){

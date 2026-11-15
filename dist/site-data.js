@@ -9,14 +9,12 @@ window.portfolioData = {
   note:'A IA oferece orientação informativa, não diagnóstico. O MedScan não substitui a avaliação de profissionais de saúde.',
   technologies:['React Native','Expo','React Native Web','Node.js','Express','MongoDB','Mongoose','JWT'],
   features:['Relato de sintomas e envio de imagens para orientação inicial por IA.','Prontuário digital com linha do tempo, busca e filtros.','Organização de medicamentos, consultas, alergias e vacinação.','Registro manual de medições com histórico e gráficos.','Perfis de familiares e pessoas acompanhadas.','Resumo para consulta com opção de salvar ou imprimir em PDF.','Interface responsiva com temas claro e escuro.'],
-  cardImage:'assets/medscan-home.png',cardImageAlt:'Tela inicial do MedScan no tema escuro.',
-  image:'assets/medscan-cover.png',imageAlt:'Tela de boas-vindas do MedScan.',
+  cardImage:'assets/medscan-home.webp',
   liveUrl:'https://medscan-h9jq.onrender.com',liveLabel:'Abrir demonstração',repoUrl:'https://github.com/BERNARDOHSOdev/MEDSCAN'
  },{
   id:'dollartrack',title:'DollarTrack',category:'Finanças · Aplicação web',
   summary:'Painel de câmbio para acompanhar moedas, converter valores e explorar dados históricos.',
-  cardImage:'assets/dollartrack-cover.png',cardImageAlt:'Página inicial do DollarTrack com painel de cotações.',
-  image:'assets/dollartrack-cover.png',imageAlt:'Página inicial do DollarTrack e panorama de moedas.',
+  cardImage:'assets/dollartrack-mobile.webp',
   description:'O DollarTrack reúne taxas de referência diárias, conversão de moedas e ferramentas de análise histórica em uma interface responsiva. Os dados são fornecidos pela Frankfurter API.',
   note:'As taxas são referências diárias e não necessariamente correspondem a valores negociáveis. O simulador não inclui impostos ou custos.',
   technologies:['HTML','CSS','JavaScript','Frankfurter API'],
@@ -28,7 +26,6 @@ window.portfolioData = {
   role:'Desenvolvimento da base da aplicação e da experiência de gestão veterinária.',
   note:'Projeto em desenvolvimento. Os módulos clínicos ainda não estão concluídos.',
   technologies:['React','TypeScript','Vite','Node.js','Express','Prisma','PostgreSQL'],
-  features:['Base modular para gestão veterinária.','Autenticação e controle de permissões.','Configuração persistente da clínica.','Interface responsiva com temas claro e escuro.'],
-  cardImageAlt:'Identidade visual do VetFlow, projeto de gestão veterinária em desenvolvimento.'
+  features:['Base modular para gestão veterinária.','Autenticação e controle de permissões.','Configuração persistente da clínica.','Interface responsiva com temas claro e escuro.']
  }]
 };
