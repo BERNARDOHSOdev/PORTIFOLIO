@@ -1,4 +1,13 @@
 const translations = {
+ 'Crio sites que dão forma à sua marca e facilitam o contato com novos clientes.':'I create websites that express your brand and help new clients reach you.',
+ 'Combino design e desenvolvimento para criar sites e landing pages com identidade, conteúdo bem organizado e navegação simples. Cada página é pensada para apresentar seus serviços e facilitar o próximo passo de quem visita.':'I combine design and development to create websites and landing pages with a distinct identity, organized content, and simple navigation. Each page presents your services and makes the next step easy for visitors.',
+ 'Estudo TI na FUNEC Riacho e aplico meus conhecimentos em projetos para a web. Entre interfaces, código e testes, busco criar experiências que funcionem bem no celular e no computador, com atenção aos detalhes.':'I study IT at FUNEC Riacho and apply what I learn to web projects. Through interfaces, code, and testing, I build experiences that work well on mobile and desktop, with attention to detail.',
+ 'Sites institucionais':'Business websites',
+ 'Sua marca, seus serviços e um caminho simples para entrar em contato.':'Your brand, your services, and a simple way to get in touch.',
+ 'Uma página focada em apresentar sua oferta e gerar conversas.':'A focused page that presents your offer and starts conversations.',
+ 'Design responsivo':'Responsive design',
+ 'Uma experiência fluida em qualquer tela, com atenção a cada detalhe.':'A smooth experience on every screen, with attention to every detail.',
+
  'Explore os projetos':'Explore the projects','Projeto anterior':'Previous project','Próximo projeto':'Next project','Landing pages selecionadas':'Selected landing pages','Layout responsivo':'Responsive layout',
  'Fitness & bem-estar':'Fitness & wellness','Energia & sustentabilidade':'Energy & sustainability','Gastronomia':'Gastronomy','Design & interiores':'Design & interiors',
  'Uma apresentação de impacto para mostrar a estrutura da academia, valorizar os treinos e incentivar o próximo passo.':'A bold presentation of the gym and its training experience, inviting visitors to take the next step.',
